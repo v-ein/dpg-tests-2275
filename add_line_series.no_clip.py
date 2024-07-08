@@ -13,19 +13,20 @@ with dpg.window():
     x_data2 = [-x for x in x_data]
     y_data = [10*sin(x) for x in x_data]
 
-    for i in range(10):
-        y_data[1 + (len(y_data)-2) * i // 10] = float("nan")
-
     y_data2 = [-y for y in y_data]
     
-    with dpg.plot(label="Regular plot", width=-1, height=-1, tag="plot"):
+    with dpg.theme() as marker_theme:
+        with dpg.theme_component():
+            dpg.add_theme_style(dpg.mvPlotStyleVar_Marker, dpg.mvPlotMarker_Diamond, category=dpg.mvThemeCat_Plots)
+
+    with dpg.plot(width=-1, height=-1, tag="plot"):
         dpg.add_plot_legend(tag="plot-legend")
         x_axis = dpg.add_plot_axis(dpg.mvXAxis, label="x")
         with dpg.plot_axis(dpg.mvYAxis, label="y") as y_axis:
-            dpg.add_line_series(x_data, y_data, label="shaded", shaded=True)
-            dpg.add_line_series(y_data, x_data, label="loop", loop=True)
-            dpg.add_line_series(x_data2, y_data2, label="segments", segments=True)
-            dpg.add_line_series(y_data2, x_data2, label="skip_nan", skip_nan=True)
+            dpg.add_line_series(x_data, y_data, label="regular")
+            dpg.bind_item_theme(dpg.last_item(), marker_theme)
+            dpg.add_line_series(x_data2, y_data2, label="no_clip", no_clip=True)
+            dpg.bind_item_theme(dpg.last_item(), marker_theme)
 
 
 dpg.setup_dearpygui()

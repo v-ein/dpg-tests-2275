@@ -18,9 +18,9 @@ with dpg.window() as wnd:
             dpg.add_axis_tag(default_value=5, color=(255, 0, 0, 255), label="Owned by X")
         with dpg.plot_axis(dpg.mvYAxis, label="y", no_label=True) as y_axis:
             dpg.add_axis_tag(default_value=0, color=(255, 0, 0, 255), label="Owned by Y")
-            dpg.add_axis_tag(default_value=0.25, color=(255, 255, 0, 255))
-            dpg.add_axis_tag(default_value=0.5, color=(0, 255, 255, 255), label="Tag: 42")
-            dpg.add_axis_tag(default_value=-0.5, color=(0, 255, 0, 255), auto_rounding=True)
+            dpg.add_axis_tag(default_value=-0.51, color=(255, 255, 0, 255))
+            dpg.add_axis_tag(default_value=0.25, color=(0, 255, 255, 255), label="Tag: 42")
+            dpg.add_axis_tag(default_value=0.51, color=(0, 255, 0, 255), auto_rounding=True)
             dpg.add_shade_series(x_data, y_data, label="Line series")
         with dpg.plot_axis(dpg.mvYAxis2, label="y2", no_label=True) as y_axis:
             dpg.add_axis_tag(default_value=0, color=(255, 255, 0, 255), label="Owned by Y2")

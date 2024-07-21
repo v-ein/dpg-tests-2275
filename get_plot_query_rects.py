@@ -14,7 +14,7 @@ with dpg.window() as wnd:
 
     dpg.add_button(label="Print query rects", callback=lambda: print(dpg.get_plot_query_rects("plot")))
 
-    with dpg.plot(label="Regular plot", tag="plot", width=-1, height=-1):
+    with dpg.plot(label="Regular plot", tag="plot", width=-1, height=-1, query=True, max_query_rects=10):
 
         dpg.add_plot_legend(tag="plot-legend")
         x_axis = dpg.add_plot_axis(dpg.mvXAxis, label="x")

@@ -12,10 +12,6 @@ with dpg.window():
         dpg.add_colormap_scale(label="Colormap Slider 1", mirror=False, reverse_dir=True)
         dpg.add_colormap_scale(label="Colormap Slider 2", mirror=True)
 
-    with dpg.group(horizontal=True):
-        dpg.add_colormap_scale()
-        dpg.add_colormap_scale(label="Colormap Label", no_label=True)
-
     dpg.add_colormap_scale(label="Level", format="%.3f m")
 
 dpg.setup_dearpygui()

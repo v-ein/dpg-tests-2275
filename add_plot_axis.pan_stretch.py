@@ -17,7 +17,7 @@ with dpg.window():
         with dpg.plot_axis(dpg.mvYAxis, label="y", tag="y-axis1"):
             dpg.add_line_series(x_data, y_data, label="Line series") 
 
-    with dpg.plot(label="range_fit on X axis", width=-1, height=300):
+    with dpg.plot(label="pan_stretch on X axis", width=-1, height=300):
         dpg.add_plot_axis(dpg.mvXAxis, label="x", tag="x-axis2", pan_stretch=True)
         with dpg.plot_axis(dpg.mvYAxis, label="y", tag="y-axis2"):
             dpg.add_line_series(x_data, y_data, label="Line series") 

@@ -11,7 +11,8 @@ def create_bar_group(
         total_bars: int = 30,
         group_size: int = 3,
         labels: List[str] = [f"Data {i+1}" for i in range(3)],
-        stacked: bool = False):
+        stacked: bool = False,
+        shift: int = 0):
 
     bar_data = [sin(x/total_bars*pi) for x in range(total_bars)]
     print(f"Creating bar group series:\n{total_bars=}, {group_size=}, {labels=}")
@@ -22,7 +23,7 @@ def create_bar_group(
         dpg.add_plot_legend()
         dpg.add_plot_axis(dpg.mvXAxis, label="x")
         with dpg.plot_axis(dpg.mvYAxis, label="y"):
-            dpg.add_bar_group_series(bar_data, labels, group_size, label="histogram", stacked=stacked)
+            dpg.add_bar_group_series(bar_data, labels, group_size, label="histogram", stacked=stacked, shift=shift)
 
 
 with dpg.window(tag="main-wnd"):
@@ -50,7 +51,7 @@ with dpg.window(tag="main-wnd"):
 
     dpg.add_separator()
 
-create_bar_group()
+create_bar_group(shift=-5)
 
 dpg.setup_dearpygui()
 dpg.show_viewport()
